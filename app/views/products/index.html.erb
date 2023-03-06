@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="brands">
+    <ul>
+      <% @brands.each_with_index do |brand, index| %>
+          <li><a class="brand <%= index == 0 ? 'active' : '' %>" data-brand="<%=brand%>" data-oem="<%=@query%>"><%=brand%></a></li>   
+      <% end %>
+    </ul>
+  </div>
+    <div class="product">
+      <% if @product %>
+            <img src="<%=@product['sys_info']['goods_img_url'] || "/assets/loader.svg"%>" alt="" height="300">
+            <div class="details">
+              <h2>Бранд: <strong><%=@product['make_name']%></strong></h2>
+              <p class="mt20">Назвнаие: <%=@product['detail_name']%></p>
+              <p class="mt20">На складе: <%=@product['qnt']%></p>
+              <h3 class="mt20">Цена: <span class="cost"><%=@product['cost']%></span></h3>
+            </div>
+      <% else %>
+      <h2>Product not found.</h2>
+      <% end %>
+    </div>    
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.brand').click(function () {
+        $('.brand').removeClass('active');
+        let element = $(this);
+        element.addClass('active');
+        $('.product').empty();
+        $('.product').append("<img src='/assets/loader.svg'>");
+        $.ajax({
+         url: "/by_brand",
+         type: "get", //send it through get method
+         data: { 
+           oem: element.data("oem"),
+           brand: element.data("brand")
+         },
+         success: function(res) {
+            let product = res.product;
+           $('.product').empty();
+           if (res.status == 200) {
+               $('.product').append(
+                `<img src="${product.sys_info.goods_img_url || "/assets/no-image.png"}" alt="" height="300">
+                  <div class="details">
+                    <h2>Бранд: <strong>${product.make_name}</strong></h2>
+                    <p class="mt20">Назвнаие: ${product.detail_name}</p>
+                    <p class="mt20">На складе: ${product.qnt}</p>
+                    <h3 class="mt20">Цена: <span class="cost">${product.cost}</span></h3>
+                  </div>`
+               );          
+           } else {    
+            $('.product').append(`<h2>${res.message}</h2>`);        
+           }
+           
+         },
+         error: function(xhr) {
+        }
+    });
+    })
+})
+</script>

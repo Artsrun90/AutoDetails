@@ -1,0 +1,59 @@
+.brands {
+    display: flex;
+    justify-content: start;
+}
+.brands ul {
+    display: flex;
+    list-style-type: none;
+    gap: 10px;
+}
+
+.brands ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid #e2e0e0;
+    border-radius: 2px;
+    background: #fff;
+    padding: 5px 15px;
+    cursor: pointer;
+    color: #4a4a4a;
+    font-weight: 700;
+    font-size: 12px;
+    height: 40px;
+    text-align: center;
+    position: relative;
+    line-height: 28px;
+    text-transform: uppercase;
+    transition: all .2s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.brands ul li a:hover {
+  background: #f8b601;
+  color: white;
+}
+.active {
+    background: #f8b601 !important;
+    color: white !important;
+}
+.product, .details {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4a4a4a;
+    display: flex;
+    justify-content: start;
+}
+.product {
+    margin-top: 40px;
+    gap: 20px;
+}
+.details {
+    flex-direction: column;
+}
+.cost {
+    color: #346eda;
+    font-size: 24px;
+}
+.mt20 {
+    margin-top: 20px;
+}

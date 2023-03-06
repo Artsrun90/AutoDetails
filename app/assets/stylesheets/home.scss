@@ -1,0 +1,57 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+* {
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+  
+  .home {
+    display: flex;
+    justify-content: start;
+  }
+
+  .search {
+    margin: 40px 0px;
+    width: 100%;
+  }
+  
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 90%;
+    background: #f1f1f1;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 4px 0px 0px 4px;
+    outline: none;
+  }
+  
+  form.example button {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background: #f8b601;
+    color: white;
+    font-size: 17px;
+    border: 1px solid #e7aa00;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 0px 4px 4px 0px;
+  }
+  
+  form.example button:hover {
+    background: #e7aa00;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
