@@ -23,8 +23,6 @@ class ProductsController < ApplicationController
 
     def get_product_by_brand(client, oem, brand)
         product = client.get_by_brand_and_oem(oem, brand)
-        p "+++++++++++++++++++++++product['data']: #{product.class}"
-        p "+++++++++++++++++++++++product['data']: #{product['data'].class}"
         @product = product['data'] ? product['data'].first : nil
     end    
 end

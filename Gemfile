@@ -28,6 +28,7 @@ gem 'font-awesome-sass'
 # gem 'image_processing', '~> 1.2'
 gem 'rest-client'
 gem 'figaro'
+gem 'nokogiri', '~> 1.13', '>= 1.13.10'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
